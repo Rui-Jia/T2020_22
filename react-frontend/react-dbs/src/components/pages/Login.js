@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import header from '../assets/header.jpg';
 import axios from 'axios';
-import {Redirect} from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 
 export class Login extends Component {
 

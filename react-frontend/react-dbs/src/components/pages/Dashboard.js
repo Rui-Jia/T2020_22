@@ -17,19 +17,13 @@ export default class Dashboard extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            tableHead: ['Head', 'Head2', 'Head3', 'Head4'],
-            tableData: [
-                ['1', '2', '3', '4'],
-                ['a', 'b', 'c', 'd'],
-                ['1', '2', '3', '456\n789'],
-                ['a', 'b', 'c', 'd'],
-            ],
             data: [],
+            customerId: window.sessionStorage.getItem("customerid")
         }
     }
 
-    retrieveData = () => {
-        Axios.get('127.0.0.1/8080/balance').then(res => this.setState({ data: res.data }))
+    retrieveData = (id) => {
+        Axios.get(`127.0.0.1/8080/transactions/${id}`).then(res => this.setState({ data: res.data }))
     }
 
     componentDidMount() {
@@ -117,7 +111,6 @@ export default class Dashboard extends Component {
     }
 
     render() {
-        const state = this.state;
         return (
             //Dashboard view
             <div id="Dashboard" style={{ background: " " }}>
@@ -131,16 +124,16 @@ export default class Dashboard extends Component {
                 <p style={chartContainerStyle}></p>
                 <div id="productRecommendations">
                     <div style={recommendationStyle}>
-                        <h3 style={{ textAlign: "center", display: "inline-block" }}>test</h3>
+                        <h3 style={{ textAlign: "center", display: "inline-block" }}>Investment</h3>
                         <div id="recommendationOne" style={itemStyle}>
-                            <div style={{ float: "left", backgroundColor: "grey" }}>
+                            <button style={{ float: "left", backgroundColor: "grey" }}>
                                 <img src={dbsEssoCard} alt="dbsEssoCard" style={{ width: '50%' }} />
                                 <p>DBS Esso Card</p>
-                            </div>
+                            </button>
                         </div>
                     </div>
                     <div style={recommendationStyle}>
-                        <h3 style={{ textAlign: "center", display: "inline-block" }}>test</h3>
+                        <h3 style={{ textAlign: "center", display: "inline-block" }}>Banking</h3>
                         <div id="recommendationTwo" style={itemStyle}>
                             <div style={{ float: "left", backgroundColor: "grey" }}>
                                 <img src={dbsAltitudeCard} alt="dbsAltitudeCard" style={{ width: "50%" }} />
@@ -149,7 +142,7 @@ export default class Dashboard extends Component {
                         </div>
                     </div>
                     <div style={recommendationStyle}>
-                        <h3 style={{ textAlign: "center", display: "inline-block" }}>test</h3>
+                        <h3 style={{ textAlign: "center", display: "inline-block" }}>Insurance</h3>
                         <div id="recommendationThree" style={itemStyle}>
                             <div style={{ float: "left", backgroundColor: "grey" }}>
                                 <img src={dbsEverydayCard} alt="dbsEverydayCard" style={{ width: "50%" }} />
@@ -179,7 +172,7 @@ const itemStyle = {
     borderWidth: '1px',
     width: '400px',
     display: 'inline-block',
-    margin: '100px',
+    height: '90%'
 }
 
 const detailStyle = {
