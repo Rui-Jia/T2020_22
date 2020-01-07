@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import '../../App.css';
 import Axios from 'axios';
+import dbsEssoCard from "../../../src/dbs-esso-card.png";
+import dbsAltitudeCard from "../../../src/dbs-altitude-card.png"
+import dbsEverydayCard from "../../../src/dbs-everyday-card.png"
 import * as am4core from "@amcharts/amcharts4/core";
 import * as am4charts from "@amcharts/amcharts4/charts";
 import am4themes_animated from "@amcharts/amcharts4/themes/animated";
@@ -10,6 +13,10 @@ am4core.useTheme(am4themes_animated);
 am4core.useTheme(am4themes_material);
 
 export default class Overview extends Component {
+    state = {
+        data: []
+    }
+
     componentDidMount() {
         //XY chart
         let xyChart = am4core.create("xychartdiv", am4charts.XYChart);
@@ -105,14 +112,17 @@ export default class Overview extends Component {
                 </div>
                 <p style={chartContainerStyle}></p>
                 <div id="productRecommendations" style={{ display: "inline-block" }}>
-                    <div id="recommendationOne" style={{width: "30%", display:"inline"}}>
-
+                    <div id="recommendationOne" style={{ width: "30%", display: "inline", borderStyle: "5px dotted", borderColour: "red" }}>
+                        <img src={dbsEssoCard} style={{ width: "15%" }} />
+                        <p>DBS Esso Card</p>
                     </div>
-                    <div id="recommendationTwo" style={{width: "30%", display:"inline"}}>
-
+                    <div id="recommendationTwo" style={{ width: "30%", display: "inline" }}>
+                        <img src={dbsAltitudeCard} style={{ width: "15%" }} />
+                        <p>DBS Altitude Card</p>
                     </div>
-                    <div id="recommendationThree" style={{width: "30%", display:"inline"}}>
-
+                    <div id="recommendationThree" style={{ width: "30%", display: "inline" }}>
+                        <img src={dbsEverydayCard} style={{ width: "15%" }} />
+                        <p>DBS Everyday Card</p>
                     </div>
                 </div>
             </div>
