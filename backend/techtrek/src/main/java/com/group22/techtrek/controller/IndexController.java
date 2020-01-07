@@ -19,9 +19,9 @@ import org.springframework.web.bind.annotation.RestController;
 public class IndexController {
     
     @Autowired
-    MarketingService userService;
+    MarketingService marketingService;
     
-    @RequestMapping(value="/login", method=RequestMethod.GET)
+    @RequestMapping(value="/marketing", method=RequestMethod.GET)
     public List<Marketing> getCustomerIds(@RequestBody User user) {
         System.out.println("Inside get Id");
         List<Marketing> marketingList = new ArrayList<>();

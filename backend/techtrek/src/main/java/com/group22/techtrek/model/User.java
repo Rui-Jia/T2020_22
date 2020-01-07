@@ -9,7 +9,7 @@ public class User {
     private String gender;
     private String firstName;
     private String lastName;
-    private String lastLogin;
+    private String lastLogIn;
     private String dateOfBirth;
     private String riskLevel;
     List<Account> accountList;
@@ -108,15 +108,15 @@ public class User {
     /**
      * @return LocalDateTime return the lastLogin
      */
-    public String getLastLogin() {
-        return lastLogin;
+    public String getLastLogIn() {
+        return lastLogIn;
     }
 
     /**
      * @param lastLogin the lastLogin to set
      */
-    public void setLastLogin(String lastLogin) {
-        this.lastLogin = lastLogin;
+    public void setLastLogIn(String lastLogIn) {
+        this.lastLogIn = lastLogIn;
     }
 
     /**
