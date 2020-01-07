@@ -59,9 +59,9 @@ export class Login extends Component {
 
         return (
             <div className="login">
-                <div className="header">
+                {/* <div className="header">
                     <img src={header} alt="Logo" className="header" />
-                </div>
+                </div> */}
 
                 <div className="boxed">
                     <div className='form-wrapper'>
