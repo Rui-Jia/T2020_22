@@ -21,9 +21,9 @@ public class IndexController {
     @Autowired
     MarketingService userService;
     
-    @RequestMapping(value="/marketing", method=RequestMethod.GET)
-    public List<Marketing> getMarketing(@RequestBody User user) {
-        System.out.println("Inside get marketing");
+    @RequestMapping(value="/login", method=RequestMethod.GET)
+    public List<Marketing> getCustomerIds(@RequestBody User user) {
+        System.out.println("Inside get Id");
         List<Marketing> marketingList = new ArrayList<>();
 
         return marketingList;
