@@ -9,6 +9,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.web.client.RestTemplate;
 
 @SpringBootApplication
+@ComponentScan(basePackages = {"com.group22.techtrek"})
 public class DemoApplication {
 
 	@Autowired
