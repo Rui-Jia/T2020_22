@@ -1,7 +1,11 @@
 import React, { Component } from 'react';
 import header from '../assets/header.jpg';
+import header2 from '../assets/desktoplogo.png';
+
 import axios from 'axios';
+import '../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import { Redirect } from 'react-router-dom';
+import '../styles/Login.css'
 
 export class Login extends Component {
 
@@ -34,7 +38,7 @@ export class Login extends Component {
             .then((response) => {
                 console.log(response);
                 if (response.status > 300) {
-                    alert('fail')
+                    alert(response.statusText)
                 } else {
                     // alert('success')
                     console.log('success')
@@ -56,13 +60,15 @@ export class Login extends Component {
         return (
             <div className="login">
                 <div className="header">
-                    <img src={header} alt="Logo" />
+                    <img src={header} alt="Logo" className="header" />
                 </div>
 
-                <div className='form-wrapper'>
-                    <h2>LOGIN</h2>
-                    <form>
-                        <label>
+                <div className="boxed">
+                    <div className='form-wrapper'>
+                        <img src={header2} alt="DBS Banking" className="smallImg" /><br /><br />
+
+                        <form>
+                            {/* <label>
                             Username:
                         <input value={this.state.username} onChange={this.handleChange} type="text" placeholder="Username" name="username" />
                         </label><br />
@@ -72,8 +78,25 @@ export class Login extends Component {
                         <input type="password" value={this.state.password} onChange={this.handleChange} name="password" />
                         </label><br /><br />
 
-                        <button onClick={this.handleSubmit}>submit</button>
-                    </form>
+                        <button onClick={this.handleSubmit}>submit</button> */}
+
+                            <div className="form-group">
+                                <label>Username</label>
+                                <input type="text" className="form-control" placeholder="Enter Username" value={this.state.username} onChange={this.handleChange} name="username" />
+                            </div>
+
+                            <div className="form-group">
+                                <label>Password</label>
+                                <input type="password" className="form-control" value={this.state.password} onChange={this.handleChange} name="password" placeholder="Enter Password" />
+                            </div>
+
+                            <button onClick={this.handleSubmit} className="btn btn-primary btn-block"><b>Login</b></button>
+
+                            <p className="forgot-password text-right">
+                                <a href="#">Forgot password?</a>
+                            </p>
+                        </form>
+                    </div>
                 </div>
             </div>
         )
