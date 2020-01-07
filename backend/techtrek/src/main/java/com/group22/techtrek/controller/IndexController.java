@@ -5,31 +5,28 @@ import java.util.List;
 
 import com.group22.techtrek.model.Marketing;
 import com.group22.techtrek.model.User;
+import com.group22.techtrek.service.MarketingService;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @CrossOrigin("*")
 public class IndexController {
     
-    List<User> userList = new ArrayList<>();
-
-    @PostMapping(value="/login")
-    public User login(@RequestBody User user) {
-        
-        return user;
-    }
-
-    //@PostMapping("/")
+    @Autowired
+    MarketingService userService;
     
-    @GetMapping(value="/marketing")
-    public List<Marketing> getMarketingList () {
+    @RequestMapping(value="/login", method=RequestMethod.GET)
+    public List<Marketing> getCustomerIds(@RequestBody User user) {
+        System.out.println("Inside get Id");
         List<Marketing> marketingList = new ArrayList<>();
+
         return marketingList;
     }
-
+    
 }

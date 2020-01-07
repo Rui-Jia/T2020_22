@@ -1,14 +1,12 @@
 package com.group22.techtrek.model;
 
-import java.time.LocalDateTime;
-
 public class Transaction {
 
-    private int transactionId;
+    private String transactionId;
     private int accountId;
     private String type;
     private double amount;
-    private LocalDateTime date;
+    private String date;
     private String tag;
     private String referenceNumber;
 
@@ -17,14 +15,14 @@ public class Transaction {
     /**
      * @return int return the transactionId
      */
-    public int getTransactionId() {
+    public String getTransactionId() {
         return transactionId;
     }
 
     /**
      * @param transactionId the transactionId to set
      */
-    public void setTransactionId(int transactionId) {
+    public void setTransactionId(String transactionId) {
         this.transactionId = transactionId;
     }
 
@@ -73,14 +71,14 @@ public class Transaction {
     /**
      * @return LocalDateTime return the date
      */
-    public LocalDateTime getDate() {
+    public String getDate() {
         return date;
     }
 
     /**
      * @param date the date to set
      */
-    public void setDate(LocalDateTime date) {
+    public void setDate(String date) {
         this.date = date;
     }
 

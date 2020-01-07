@@ -1,41 +1,40 @@
 package com.group22.techtrek.model;
 
-import java.time.LocalDateTime;
-
 public class Marketing {
 
-    private int msgId;
-    private LocalDateTime dateCreated;
+    private int messageId;
+    private String dateCreated;
     private String summary;
     private String type;
     private String subject;
     private String body;
 
+
     /**
-     * @return int return the msgId
+     * @return int return the messageId
      */
-    public int getMsgId() {
-        return msgId;
+    public int getMessageId() {
+        return messageId;
     }
 
     /**
-     * @param msgId the msgId to set
+     * @param messageId the messageId to set
      */
-    public void setMsgId(int msgId) {
-        this.msgId = msgId;
+    public void setMessageId(int messageId) {
+        this.messageId = messageId;
     }
 
     /**
-     * @return LocalDateTime return the dateCreated
+     * @return String return the dateCreated
      */
-    public LocalDateTime getDateCreated() {
+    public String getDateCreated() {
         return dateCreated;
     }
 
     /**
      * @param dateCreated the dateCreated to set
      */
-    public void setDateCreated(LocalDateTime dateCreated) {
+    public void setDateCreated(String dateCreated) {
         this.dateCreated = dateCreated;
     }
 

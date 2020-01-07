@@ -1,19 +1,25 @@
 package com.group22.techtrek.model;
 
-import java.time.LocalDateTime;
+import java.util.List;
 
 public class User {
     private int customerId;
-    private String username;
+    private String userName;
     private String password;
     private String gender;
     private String firstName;
     private String lastName;
-    private LocalDateTime lastLogin;
-    private LocalDateTime dateOfBirth;
+    private String lastLogin;
+    private String dateOfBirth;
     private String riskLevel;
-    private Account account;
+    List<Account> accountList;
+  
     
+
+    @Override
+    public String toString() {
+        return customerId + " " + userName + " " + password + " " + gender;
+    }
 
     /**
      * @return int return the customerId
@@ -30,17 +36,17 @@ public class User {
     }
 
     /**
-     * @return String return the username
+     * @return String return the userName
      */
-    public String getUsername() {
-        return username;
+    public String getUserName() {
+        return userName;
     }
 
     /**
-     * @param username the username to set
+     * @param userName the userName to set
      */
-    public void setUsername(String username) {
-        this.username = username;
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
     /**
@@ -102,28 +108,28 @@ public class User {
     /**
      * @return LocalDateTime return the lastLogin
      */
-    public LocalDateTime getLastLogin() {
+    public String getLastLogin() {
         return lastLogin;
     }
 
     /**
      * @param lastLogin the lastLogin to set
      */
-    public void setLastLogin(LocalDateTime lastLogin) {
+    public void setLastLogin(String lastLogin) {
         this.lastLogin = lastLogin;
     }
 
     /**
      * @return LocalDateTime return the dateOfBirth
      */
-    public LocalDateTime getDateOfBirth() {
+    public String getDateOfBirth() {
         return dateOfBirth;
     }
 
     /**
      * @param dateOfBirth the dateOfBirth to set
      */
-    public void setDateOfBirth(LocalDateTime dateOfBirth) {
+    public void setDateOfBirth(String dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
     }
 
@@ -141,19 +147,18 @@ public class User {
         this.riskLevel = riskLevel;
     }
 
-
     /**
      * @return Account return the account
      */
-    public Account getAccount() {
-        return account;
+    public List<Account> getAccountList() {
+        return accountList;
     }
 
     /**
      * @param account the account to set
      */
-    public void setAccount(Account account) {
-        this.account = account;
+    public void setAccount(List<Account> accountList) {
+        this.accountList = accountList;
     }
 
 }

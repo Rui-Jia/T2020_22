@@ -1,44 +1,45 @@
 package com.group22.techtrek.model;
 
-import java.time.LocalDateTime;
 import java.util.List;
 
 public class Account {
-    private int accId;
-    private String accType;
+    private int accountId;
+    private String type;
     private String displayName;
-    private String accNumber;
-    private double balance;
+    private String accountNumber;
+    private double availableBalance;
     private String currency;
-    private LocalDateTime dateOfBalance;
+    private String dateOfBalance;
+
     List<Transaction> transactionList;
- 
+
+
     /**
-     * @return int return the accId
+     * @return int return the accountId
      */
-    public int getAccId() {
-        return accId;
+    public int getAccountId() {
+        return accountId;
     }
 
     /**
-     * @param accId the accId to set
+     * @param accountId the accountId to set
      */
-    public void setAccId(int accId) {
-        this.accId = accId;
+    public void setAccountId(int accountId) {
+        this.accountId = accountId;
     }
 
     /**
-     * @return String return the accType
+     * @return String return the type
      */
-    public String getAccType() {
-        return accType;
+    public String getType() {
+        return type;
     }
 
     /**
-     * @param accType the accType to set
+     * @param type the type to set
      */
-    public void setAccType(String accType) {
-        this.accType = accType;
+    public void setType(String type) {
+        this.type = type;
     }
 
     /**
@@ -56,31 +57,31 @@ public class Account {
     }
 
     /**
-     * @return String return the accNumber
+     * @return String return the accountNumber
      */
-    public String getAccNumber() {
-        return accNumber;
+    public String getAccountNumber() {
+        return accountNumber;
     }
 
     /**
-     * @param accNumber the accNumber to set
+     * @param accountNumber the accountNumber to set
      */
-    public void setAccNumber(String accNumber) {
-        this.accNumber = accNumber;
+    public void setAccountNumber(String accountNumber) {
+        this.accountNumber = accountNumber;
     }
 
     /**
-     * @return double return the balance
+     * @return double return the availableBalance
      */
-    public double getBalance() {
-        return balance;
+    public double getAvailableBalance() {
+        return availableBalance;
     }
 
     /**
-     * @param balance the balance to set
+     * @param availableBalance the availableBalance to set
      */
-    public void setBalance(double balance) {
-        this.balance = balance;
+    public void setAvailableBalance(double availableBalance) {
+        this.availableBalance = availableBalance;
     }
 
     /**
@@ -100,14 +101,14 @@ public class Account {
     /**
      * @return LocalDateTime return the dateOfBalance
      */
-    public LocalDateTime getDateOfBalance() {
+    public String getDateOfBalance() {
         return dateOfBalance;
     }
 
     /**
      * @param dateOfBalance the dateOfBalance to set
      */
-    public void setDateOfBalance(LocalDateTime dateOfBalance) {
+    public void setDateOfBalance(String dateOfBalance) {
         this.dateOfBalance = dateOfBalance;
     }
 
