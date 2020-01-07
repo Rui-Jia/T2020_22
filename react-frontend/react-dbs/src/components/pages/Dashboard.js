@@ -8,13 +8,28 @@ import * as am4core from "@amcharts/amcharts4/core";
 import * as am4charts from "@amcharts/amcharts4/charts";
 import am4themes_animated from "@amcharts/amcharts4/themes/animated";
 import am4themes_material from "@amcharts/amcharts4/themes/material";
+import SimpleTable from '../Table';
 
 am4core.useTheme(am4themes_animated);
 am4core.useTheme(am4themes_material);
 
-export default class Overview extends Component {
-    state = {
-        data: []
+export default class Dashboard extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            tableHead: ['Head', 'Head2', 'Head3', 'Head4'],
+            tableData: [
+                ['1', '2', '3', '4'],
+                ['a', 'b', 'c', 'd'],
+                ['1', '2', '3', '456\n789'],
+                ['a', 'b', 'c', 'd'],
+            ],
+            data: [],
+        }
+    }
+
+    retrieveData = () => {
+        Axios.get('127.0.0.1/8080/balance').then(res => this.setState({ data: res.data }))
     }
 
     componentDidMount() {
@@ -102,27 +117,45 @@ export default class Overview extends Component {
     }
 
     render() {
+        const state = this.state;
         return (
             //Dashboard view
-            <div id="Overview">
+            <div id="Dashboard" style={{ background: " " }}>
                 <div id="chartContainer" style={{ display: "inline-block" }}>
-                    <div id="xychartdiv" style={{ width: "65%", height: "500px", float: "left", display: "inline" }}></div>
-                    <div id="pichartdiv" style={{ width: "35%", height: "250px", float: "right", display: "inline" }}></div>
-                    <p></p>
+                    <div id="xychartdiv" style={{ width: "1300px", height: "500px", float: "left", display: "inline-block" }}></div>
+                    <div id="pichartdiv" style={{ width: "600px", height: "200px", float: "right", display: "inline-block" }}></div>
+                    <div id="accountDetails" style={detailStyle}>
+                        <SimpleTable />
+                    </div>
                 </div>
                 <p style={chartContainerStyle}></p>
-                <div id="productRecommendations" style={{ display: "inline-block" }}>
-                    <div id="recommendationOne" style={{ width: "30%", display: "inline", borderStyle: "5px dotted", borderColour: "red" }}>
-                        <img src={dbsEssoCard} style={{ width: "15%" }} />
-                        <p>DBS Esso Card</p>
+                <div id="productRecommendations">
+                    <div style={recommendationStyle}>
+                        <h3 style={{ textAlign: "center", display: "inline-block" }}>test</h3>
+                        <div id="recommendationOne" style={itemStyle}>
+                            <div style={{ float: "left", backgroundColor: "grey" }}>
+                                <img src={dbsEssoCard} alt="dbsEssoCard" style={{ width: '50%' }} />
+                                <p>DBS Esso Card</p>
+                            </div>
+                        </div>
                     </div>
-                    <div id="recommendationTwo" style={{ width: "30%", display: "inline" }}>
-                        <img src={dbsAltitudeCard} style={{ width: "15%" }} />
-                        <p>DBS Altitude Card</p>
+                    <div style={recommendationStyle}>
+                        <h3 style={{ textAlign: "center", display: "inline-block" }}>test</h3>
+                        <div id="recommendationTwo" style={itemStyle}>
+                            <div style={{ float: "left", backgroundColor: "grey" }}>
+                                <img src={dbsAltitudeCard} alt="dbsAltitudeCard" style={{ width: "50%" }} />
+                                <p>DBS Altitude Card</p>
+                            </div>
+                        </div>
                     </div>
-                    <div id="recommendationThree" style={{ width: "30%", display: "inline" }}>
-                        <img src={dbsEverydayCard} style={{ width: "15%" }} />
-                        <p>DBS Everyday Card</p>
+                    <div style={recommendationStyle}>
+                        <h3 style={{ textAlign: "center", display: "inline-block" }}>test</h3>
+                        <div id="recommendationThree" style={itemStyle}>
+                            <div style={{ float: "left", backgroundColor: "grey" }}>
+                                <img src={dbsEverydayCard} alt="dbsEverydayCard" style={{ width: "50%" }} />
+                                <p>DBS Everyday Card</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -133,5 +166,26 @@ export default class Overview extends Component {
 const chartContainerStyle = {
     borderBottom: '2px #999966 solid',
     margin: '2px 35px',
+}
+
+const recommendationStyle = {
+    width: '400px',
+    display: 'inline-block',
+    margin: '100px',
+}
+
+const itemStyle = {
+    borderStyle: 'solid',
+    borderWidth: '1px',
+    width: '400px',
+    display: 'inline-block',
+    margin: '100px',
+}
+
+const detailStyle = {
+    width: "600px",
+    height: "200px",
+    float: "right",
+    display: "inline-block",
 }
 
